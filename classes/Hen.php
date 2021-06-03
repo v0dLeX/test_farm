@@ -1,22 +1,14 @@
 <?php
 
 
-class Hen extends Animal
+class Hen extends Animal implements CanGiveProduct
 {
-    public $name = 'яиц';
     public $id;
     public function __construct()
     {
         $this->id = substr(md5(rand()), 0, 6);
     }
 
-    /**
-     * @return string
-     */
-    public function getName(): string
-    {
-        return $this->name;
-    }
 
     public function getProduction(): int
     {

@@ -3,5 +3,6 @@
 
 abstract class Animal
 {
-    abstract public function getProduction();
+
+     public function getProduction(){}
 }
