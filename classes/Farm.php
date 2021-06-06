@@ -6,21 +6,18 @@ include 'vendor/autoload.php';
 
 class Farm{
 
-    public static function addAnimal(Animal $animal, &$array){  //добавление животных к аппарату и выкачивание ресурсов
-        if ($animal instanceof CanGiveProduct) {
-            array_push($array, $animal->getProduction());
-        } else {
-            print 'Животное класса ' . get_class($animal). ' с id '.$animal->id . ' не может создовать продукты.' . PHP_EOL;
-        }
-    }
-
-    public static function collectProduction($list): array         //сбор
-    {
-        $count = array();
-        foreach ($list as $value){
-            $count[] = array_sum($value);
-        }
-        return $count;
+    public static function addAnimal(int $count, string $getClass){  //добавление животных к аппарату и выкачивание ресурсов
+       for ($i = 0; $i < $count; $i++){
+           $animalsList[] = new $getClass();
+           if ($animalsList[$i] instanceof CanGiveProduct) {
+               $production[] = $animalsList[$i]->getProduction();
+           } else {
+               print 'Животное класса ' . get_class($animalsList[$i]). ' с id '.$animalsList[$i]->id . ' не может создовать продукты.' . PHP_EOL;
+           }
+       }
+       if ($production != null){
+           return array_sum($production);
+       }
     }
 
 
